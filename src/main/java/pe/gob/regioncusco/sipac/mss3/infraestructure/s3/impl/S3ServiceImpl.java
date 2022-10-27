@@ -54,11 +54,16 @@ public class S3ServiceImpl implements S3Service {
         }
     }
 
-    public void deleteObject(String key){
+    @Override
+    public String getUrlFile(String key) {
+        return getObjectUrl(key);
+    }
+
+    private void deleteObject(String key){
         amazonS3Client.deleteObject(BUCKET, key);
     }
 
-    public String getObjectUrl(String key){
-        return String.format("https://%s.s3.amazonaws.com/%s", BUCKET, key);
+    private String getObjectUrl(String key){
+        return String.format("https://ewr1.vultrobjects.com/%s/%s", BUCKET, key);
     }
 }

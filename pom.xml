@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>pe.gob.regioncusco.sipac</groupId>
 	<artifactId>mss3</artifactId>
-	<version>0.1.0</version>
+	<version>0.1.2</version>
 	<name>mss3</name>
 	<description>Service S3</description>
 	<properties>
