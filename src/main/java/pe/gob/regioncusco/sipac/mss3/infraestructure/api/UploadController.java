@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import pe.gob.regioncusco.sipac.mss3.application.UploadService;
 import pe.gob.regioncusco.sipac.mss3.domain.dto.ResponseUplaod;
+import pe.gob.regioncusco.sipac.mss3.domain.model.Asset;
+import pe.gob.regioncusco.sipac.mss3.infraestructure.s3.S3Service;
 
 @RestController
 @RequestMapping(UploadController.UPLOAD_SERVICE)
@@ -15,11 +17,18 @@ public class UploadController {
     private static final String COTIZACIONES = "/cotizaciones";
 
     @Autowired private UploadService uploadService;
+    @Autowired private S3Service s3Service;
 
     @PostMapping(COTIZACIONES)
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<ResponseUplaod> upload(@RequestParam("file") MultipartFile file){
         return new ResponseEntity<>(uploadService.uploadFile(file), HttpStatus.CREATED);
+    }
+
+    @GetMapping("/read")
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity<Asset> read(){
+        return new ResponseEntity<>(s3Service.getObject("bucket"), HttpStatus.OK);
     }
 
 }

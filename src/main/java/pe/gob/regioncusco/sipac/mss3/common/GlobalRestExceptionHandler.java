@@ -1,5 +1,6 @@
 package pe.gob.regioncusco.sipac.mss3.common;
 
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
@@ -12,7 +13,6 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.bind.support.WebExchangeBindException;
 import org.yaml.snakeyaml.constructor.DuplicateKeyException;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 
 @RestControllerAdvice
