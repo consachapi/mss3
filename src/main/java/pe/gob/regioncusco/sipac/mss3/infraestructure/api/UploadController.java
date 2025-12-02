@@ -20,7 +20,7 @@ public class UploadController {
     @Autowired private S3Service s3Service;
 
     @PostMapping(COTIZACIONES)
-    @ResponseStatus(HttpStatus.OK)
+    @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<ResponseUplaod> upload(@RequestParam("file") MultipartFile file){
         return new ResponseEntity<>(uploadService.uploadFile(file), HttpStatus.CREATED);
     }

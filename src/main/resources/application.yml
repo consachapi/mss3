@@ -15,11 +15,11 @@ spring:
       s3:
         enabled: true
         region: eu-west-1
-        #endpoint: http://172.16.4.47:9000
-        endpoint: https://apis.cusco.gob.pe
+        endpoint: http://172.16.4.63:9000
+        #endpoint: https://apis.cusco.gob.pe
       credentials:
-        access-key: pIv9sSruhXHgDriL2vBE
-        secret-key: Uem9zmZe4BVxA09aKxukCwcFdjPJXCAxCGoct8yz
+        access-key: KMOyv6pKvJ8uu805OQQo
+        secret-key: 8JeiKiyXMzM6TJHcHZN15JtFGuryjWlAKyLlO7LR
 management:
   endpoint:
   endpoints:

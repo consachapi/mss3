@@ -26,7 +26,7 @@ import java.nio.charset.StandardCharsets;
 @Service
 public class S3ServiceImpl implements S3Service {
     private static final Logger LOG = LoggerFactory.getLogger(S3ServiceImpl.class);
-    private static final String BUCKET = ParamsManager.BUCKET_TRANSPARENCIA;
+    private static final String BUCKET = ParamsManager.BUCKET_OMAPED;
 
     private final S3Client s3Client;
 
@@ -41,7 +41,8 @@ public class S3ServiceImpl implements S3Service {
             InputStream inputStream = new ByteArrayInputStream(bytes);
             PutObjectRequest putObjectRequest = PutObjectRequest.builder()
                     .bucket(BUCKET)
-                    .key("transparencia/documentos/Resolucion-Alcaldia/" + key)
+                    //.key("transparencia/documentos/Resolucion-Alcaldia/" + key)
+                    .key(key)
                     .build();
             PutObjectResponse putObjectResponse = s3Client.putObject(putObjectRequest, RequestBody.fromInputStream(inputStream, bytes.length));
             System.out.println(putObjectResponse.eTag());
